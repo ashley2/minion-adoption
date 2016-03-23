@@ -11,8 +11,9 @@ app.service('OwnerService', function($http){
     return $http.get('/owners')
   };
 
-  this.create = function(owner){
-    return $http.post('/owners',owner);
+  this.create = function(newOwner){
+    console.log('new', newOwner)
+    return $http.post('/owners',newOwner);
   }
 
   this.delete = function(owner) {

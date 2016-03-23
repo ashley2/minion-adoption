@@ -10,6 +10,7 @@ angular.module('minionApp')
     var owners = res.data;
     $scope.owners = owners;
 
+    console.log(owners)
 
   }, function(err){
     console.error(err);
@@ -17,11 +18,12 @@ angular.module('minionApp')
 
 
 
-  $scope.addOwner = (owner) => {
-console.log('click')
-    OwnerService.create($scope.owner)
+  $scope.addOwner = (newOwner) => {
+
+    OwnerService.create($scope.newOwner)
     .then(function(res){
       $scope.owners.push(res.data)
+      console.log('res.data', res.data)
       $scope.owner = {}
 
     }, function(err){

@@ -4,55 +4,52 @@
 <div clas="listTitle">Owners:</div>
 <div class="owner-col">
   <ul >
-    <li><a ng-click="viewOwner = null">+Add Owner<a></li>
-    <li><a  ng-repeat="owner in owners track by $index" ng-click="viewOwner = owner">{{owner.name}}<a></li>
+    <li><a ng-click="viewOwner = null">+Add Owner<a/></li>
+    <li><a ng-repeat="owner in owners track by $index" ng-click="viewOwner = owner">{{owner.name}}</a></li>
     <li ng-click="viewOwner = true">stuff</li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
 
   </ul>
 
 
-</div>
-
-<div class="middle-col">
-  <div ng-show="viewOwner">
+</div><div class="middle-col">
+  <div class="card" ng-show="viewOwner">
+  <h3>Owners Card</h3>
     <label for="">Name</label>
-    <input>{{owner.name}}</input>
+    <input>{{viewOwner.name}}</input>
+    <br>
     <label for="">Age</label>
-    <input>{{owner.age}}</input>
+    <input>{{viewOwner.age}}</input>
+    <br>
     <label for="">Notes:</label>
-    <input>{{owner.notes}}</input>
-    <input>{{owner.mongoose.Schema.Types.ObjectId}}</input>
-    <img ng-src="{{owner.photo}}">
-  </div>
-
-  <div ng-hide="viewOwner">
-    <form ng-submit="addOwner(owner)">
+    <textarea>{{viewOwner.notes}}</textarea>
+    <br>
+    <label for="Minion"></label>
+    <input>{{viewOwner.mongoose.Schema.Types.ObjectId}}</input>
+    <br>
+    <img ng-src="{{viewOwner.photo}}">
+  </div><div class="card" ng-hide="viewOwner">
+    <form ng-submit="addOwner(newOwner)">
+    <h3>New Owner</h3>
 
       <label>Name:</label>
-      <input ng-model="owner.name" type="text">
-
+      <input ng-model="newOwner.name" type="text" required>
+      <br>
       <label for="">Photo URL</label>
-      <input ng-model="owner.photo" type="string" min="1" max="12">
+      <input ng-model="newOwner.photo" type="string" min="1" max="12">
+      <br>
 
 
       <label>Age:</label>
-      <input ng-model="owner.age" type="number" min="1" max="90">
-
-      <label for="notes">Notes:</label>
-      <textarea ng-model="owner.notes" cols="9" rows="3"></textarea>
+      <input ng-model="newOwner.age" type="number" min="1" max="90">
+      <br>
 
       <label for="">Minions Adopted:</label>
-      <input ng-model="owner.mongoose.Schema.Types.ObjectId" type="mongoose.Schema.Types.ObjectId">
+      <input ng-model="newOwner.mongoose.Schema.Types.ObjectId" type="mongoose.Schema.Types.ObjectId">
+        
+      <br>
+
+      <label for="notes">Notes:</label>
+      <textarea ng-model="newOwner.notes" cols="9" rows="3"></textarea>
 
       <button type="submit">Submit Owner</button>
     </form>

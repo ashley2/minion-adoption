@@ -1,5 +1,5 @@
 angular.module('minionApp')
-.controller('minionCtrl', function($scope, MinionService, $stateParams){
+.controller('minionsCtrl', function($scope, MinionService, $stateParams){
 
   $scope.minions = [];
 

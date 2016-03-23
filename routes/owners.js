@@ -18,11 +18,11 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  Owner.create(req.body, (err, owner) =>{
+  Owner.create(req.body, (err, newOwner) =>{
     if(err) {
       return res.status(499).send(err)
     }
-    res.send(owner);
+    res.send(newOwner);
   })
 });
 
