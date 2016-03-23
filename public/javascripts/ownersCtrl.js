@@ -32,14 +32,14 @@ angular.module('minionApp')
 
   $scope.viewOwner = null;
 
-  $scope.editOwner = function(owner){
-    console.log(owner);
-    $scope.viewOwner = owner;
-  }
+  // $scope.editOwner = function(owner){
+  //   console.log(owner);
+  //   $scope.viewOwner = owner;
+  // }
 
-  $scope.saveEdit = function(){
-    $scope.viewOwner = null;
-  }
+  // $scope.saveEdit = function(){
+  //   $scope.viewOwner = null;
+  // }
 
 
   
