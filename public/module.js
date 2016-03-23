@@ -10,7 +10,7 @@ var app = angular.module('minionApp', ['ui.router'])
     templateUrl: "templates/owners.html",
     controller: "ownersCtrl"
   })
-  .state('minion', {
+  .state('minions', {
     url: "/minions/",
     templateUrl: "templates/minions.html",
     controller: "minionsCtrl"

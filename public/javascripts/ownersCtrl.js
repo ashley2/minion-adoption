@@ -18,7 +18,7 @@ angular.module('minionApp')
 
 
   $scope.addOwner = (owner) => {
-
+console.log('click')
     OwnerService.create($scope.owner)
     .then(function(res){
       $scope.owners.push(res.data)
@@ -34,7 +34,7 @@ angular.module('minionApp')
 
   // $scope.editOwner = function(owner){
   //   console.log(owner);
-  //   $scope.viewOwner = owner;
+  //   $scope.viewOiwner = owner;
   // }
 
   // $scope.saveEdit = function(){

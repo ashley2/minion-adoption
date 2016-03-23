@@ -6,7 +6,7 @@
   <ul >
     <li><a ng-click="viewOwner = null">+Add Owner<a></li>
     <li><a  ng-repeat="owner in owners track by $index" ng-click="viewOwner = owner">{{owner.name}}<a></li>
-    <li></li>
+    <li ng-click="viewOwner = true">stuff</li>
     <li></li>
     <li></li>
     <li></li>
@@ -20,13 +20,16 @@
 
   </ul>
 
-</div>
 
+</div>
 
 <div class="middle-col">
   <div ng-show="viewOwner">
+    <label for="">Name</label>
     <input>{{owner.name}}</input>
+    <label for="">Age</label>
     <input>{{owner.age}}</input>
+    <label for="">Notes:</label>
     <input>{{owner.notes}}</input>
     <input>{{owner.mongoose.Schema.Types.ObjectId}}</input>
     <img ng-src="{{owner.photo}}">
@@ -39,11 +42,11 @@
       <input ng-model="owner.name" type="text">
 
       <label for="">Photo URL</label>
-      <input ng-model="owner.photo" type="number" min="1" max="12">
+      <input ng-model="owner.photo" type="string" min="1" max="12">
 
 
       <label>Age:</label>
-      <input ng-model="owner.age" type="number" min="1" max="15">
+      <input ng-model="owner.age" type="number" min="1" max="90">
 
       <label for="notes">Notes:</label>
       <textarea ng-model="owner.notes" cols="9" rows="3"></textarea>
