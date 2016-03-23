@@ -1,0 +1,47 @@
+
+<div id=column1>
+  <ul>
+    <li ng-repeat=" owner in owners track by $index">{{owner.name}}</li>
+  </ul>
+</div>
+
+
+<!-- single owner view -->
+<div>
+
+  <input>{{owner.name}}</input>
+  <input>{{owner.age}}</input>
+  <input>{{owner.notes}}</input>
+  <input>{{owner.mongoose.Schema.Types.ObjectId}}</input>
+  <img ng-src="{{owner.photo}}">
+
+</div>
+
+<!-- form -->
+
+<div>
+  <form ng-submit="addOwner(owner)">
+
+    <label>Name:</label>
+    <input ng-model="owner.name" type="text">
+
+    <input ng-model="owner.photo" type="number" min="1" max="12">
+
+
+    <label>Age:</label>
+    <input ng-model="owner.age" type="number" min="1" max="15">
+
+    <label for="notes">Notes:</label>
+    <textarea ng-model="owner.notes" cols="9" rows="3"></textarea>
+
+    <label for="">Minions Adopted:</label>
+    <input ng-model="owner.mongoose.Schema.Types.ObjectId" type="mongoose.Schema.Types.ObjectId">
+
+  </div>
+
+  <button type="submit">Add Owner</button>
+  <button>X</button>
+
+
+</form>
+</div>
