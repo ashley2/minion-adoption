@@ -19,11 +19,22 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   // border: 2px solid green;
 }
 
+.minion-col {
+  display: inline-block;
+  float:right;
+}
+
+.card {
+  margin: auto 0;
+}
+
 .middle-col {
   width: 60%;
   display: inline-block;
 // border: 2px solid blue;
 }
+
+
 
 li {
   color: #0627C2;

@@ -18,11 +18,11 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  Minion.create(req.body, (err, minion) =>{
+  Minion.create(req.body, (err, newMinion) =>{
     if(err) {
       return res.status(499).send(err)
     }
-    res.send(minion);
+    res.send(newMinion);
   })
 });
 

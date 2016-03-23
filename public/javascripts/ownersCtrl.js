@@ -49,21 +49,18 @@ $scope.saveEdit = function(viewOwner){
 }
 
 
-
-
 $scope.deleteOwner = function(viewOwner){
-  console.log('delete')
   swal({   title: "Are you sure?",   
     text: "You will not be able to recover this owners info!",
     type: "warning",
     showCancelButton: true, 
     confirmButtonColor: "#DD6B55", 
     confirmButtonText: "Yes, delete it!",
-    closeOnConfirm: false },
+    closeOnConfirm: false},
     function(){   
       OwnerService.delete(viewOwner)
       .then(function(){
-        var index = $scope.owners.indexOf(viewOswner);
+        var index = $scope.owners.indexOf(viewOwner);
         $scope.owners.splice(index, 1);
         $scope.viewOwner = null;
         swal("Deleted!",

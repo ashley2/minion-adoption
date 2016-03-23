@@ -1,47 +1,67 @@
-<h1>MINIONS</h1>
-
-<!-- <ul>
-  <li>
-  </li>
-</ul>
 
 
- -->
+<div class="middle-col minion-middle">
+  <div class="card" ng-show="viewMinion">
+    <h3>Minions Card</h3>
+    <form ng-submit="saveEdit(viewMinion)">
+      <label for="">Name</label>
+      <input ng-model="viewMinion.name"></input>
+      <br>
+      <label for="">Eyes</label>
+      <input ng-model="viewMinion.eyes"></input>
+      <br>
+      <label for="">hair</label>
+      <input ng-model="viewMinion.hair"></input>
+      <br>
+      <label for="">Notes:</label>
+      <textarea ng-model="viewMinion.notes"></textarea>
+      <br>
 
-<!-- single owner view -->
+      <label for="">Adopted?</label>
+      <input type="checkbox">
 
-<!-- <div>{{owner.last}}</div>
-<div>{{reserv.seats}}</div>
+      <br>
+      
+      <img ng-src="{{viewMinion.photo}}">
+      <input type="text" ng-model="viewMinion.photo">
+      <button type='submit'>Save Edit</button>
+    </form>
+    <button id="delete" ng-click="deleteMinion(viewMinion)">Delete Minion</button>
+  </div><div class="card" ng-hide="viewMinion">
+  <form ng-submit="addMinion(newMinion)">
+    <h3>New Minion</h3>
 
-<img ng-src="{{owner.photo}}">
-
- -->
-<!-- form -->
-
-<!-- 
-<form ng-submit="addReserv(reserv)">
-
-  <label>First Name:</label>
-  <input ng-model="owner.first" type="text">
-  <label>Last Name:</label>
-  <input ng-model="owner.last" type="text">
-
-  <input ng-model="owner.photo" type="number" min="1" max="12">
+    <label>Name:</label>
+    <input ng-model="newMinion.name" type="text" required>
+    <br>
+    <label for="">Photo URL</label>
+    <input ng-model="newMinion.photo" type="img">
+    <br>
 
 
-  <label>Age:</label>
-  <input ng-model="owner.age" type="number" min="1" max="15">
+    <label>Eyes</label>
+    <input ng-model="newMinion.eyes" type="text">
+    <br>  
 
-  <label for="notes">Notes:</label>
-  <textarea ng-model="owner.notes" cols="9" rows="3"></textarea>
+    <label>Hair</label>
+    <input ng-model="newMinion.hair" type="text">
+    <br>
+    
+    <div>Available for adoption</div>
 
-  <label for="">Minions Adopted:</label>
-  <input type="mongoose.Schema.Types.ObjectId">
+    <label for="notes">Notes:</label>
+    <textarea ng-model="newMinion.notes" cols="9" rows="3"></textarea>
 
+    <button type="submit">Submit Minion</button>
+  </form>
 </div>
 
-<button type="submit">Add Owner</button>
-<button>X</button>
+</div><div class="minion-col">
+<div class="listTitle">Minions:</div>
+<ul >
+  <li><a ng-click="viewMinion = null">+Add Minion<a/></li>
+  <li ng-repeat="minion in minions track by $index"><a ng-click="editMinion(minion)">{{minion.name}}</a></li>
+  <!-- <li ng-click="viewOwner = true">stuff</li> -->
 
-
-</form> -->
+</ul>
+</div>

@@ -16,9 +16,9 @@ angular.module('minionApp')
   });
 
 
-  $scope.addMinion = (minion) => {
+  $scope.addMinion = (newMinion) => {
 
-    MinionService.create($scope.minion)
+    MinionService.create($scope.newMinion)
     .then(function(res){
       $scope.minions.push(res.data)
       $scope.minion = {}
@@ -32,31 +32,22 @@ angular.module('minionApp')
   $scope.viewMinion = null;
 
   $scope.editMinion = function(minion){
-    console.log(minion);
     $scope.viewMinion = minion;
-
   }
 
-  $scope.saveEdit = function(){
-    $scope.viewMinion = null;
-  }
-
-
-  
-  $scope.update = function(viewMinion){
-    MinionService.update(viewMinion)
-    .then(function(){
-      swal("Great!", "Your minion has been saved!", "success")
-    }, function(err){
-      console.log(err);
-    })
-  }
+ $scope.saveEdit = function(viewMinion){
+  $scope.viewMinion = null;
+  MinionService.update(viewMinion)
+  .then(function(){
+    swal("Great!", "Your minion has been saved!", "success")
+  }, function(err){
+    console.log(err);
+  })
+}
 
 
 
-
-  $scope.deleteRes = function(minion){
-    console.log('delete')
+  $scope.deleteMinion = function(viewMinion){
     swal({   title: "Are you sure?",   
       text: "You will not be able to recover this minions info!",
       type: "warning",
@@ -65,9 +56,9 @@ angular.module('minionApp')
       confirmButtonText: "Yes, delete it!",
       closeOnConfirm: false },
       function(){   
-        MinionService.delete(minion)
+        MinionService.delete(viewMinion)
         .then(function(){
-          var index = $scope.minions.indexOf(minion);
+          var index = $scope.minions.indexOf(viewMinion);
           $scope.minions.splice(index, 1);
           $scope.viewMinion = null;
           swal("Deleted!",

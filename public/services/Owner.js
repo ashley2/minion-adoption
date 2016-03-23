@@ -12,12 +12,11 @@ app.service('OwnerService', function($http){
   };
 
   this.create = function(newOwner){
-    console.log('new', newOwner)
     return $http.post('/owners',newOwner);
   }
 
   this.delete = function(viewOwner) {
-   return $http.delete(`/owners/${owner._id}`)
+   return $http.delete(`/owners/${viewOwner._id}`)
 
  };
 

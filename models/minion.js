@@ -5,7 +5,8 @@ var MinionSchema = mongoose.Schema({
   hair: {type: String },
   eyes: {type: String},
   notes: {type: String},
-  adopted:{type: Boolean}
+  adopted:{type: Boolean, default:false},
+  photo: {type: String}
 });
 
 module.exports = mongoose.model("Minion", MinionSchema)

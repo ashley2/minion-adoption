@@ -11,12 +11,12 @@ app.service('MinionService', function($http){
     return $http.get('/minions')
   };
 
-  this.create = function(minion){
-    return $http.post('/minions',minion);
+  this.create = function(newMinion){
+    return $http.post('/minions',newMinion);
   }
 
-  this.delete = function(minion) {
-   return $http.delete(`/minions/${minion._id}`)
+  this.delete = function(viewMinion) {
+   return $http.delete(`/minions/${viewMinion._id}`)
 
  };
 
