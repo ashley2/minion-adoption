@@ -16,7 +16,7 @@ app.service('OwnerService', function($http){
     return $http.post('/owners',newOwner);
   }
 
-  this.delete = function(owner) {
+  this.delete = function(viewOwner) {
    return $http.delete(`/owners/${owner._id}`)
 
  };

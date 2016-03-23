@@ -31,55 +31,49 @@ angular.module('minionApp')
     }); 
   };  
 
+// show/hide views
+$scope.viewOwner = null;
 
+$scope.editOwner = function(owner){
+  $scope.viewOwner = owner;
+}
+
+$scope.saveEdit = function(viewOwner){
   $scope.viewOwner = null;
-
-  // $scope.editOwner = function(owner){
-  //   console.log(owner);
-  //   $scope.viewOiwner = owner;
-  // }
-
-  // $scope.saveEdit = function(){
-  //   $scope.viewOwner = null;
-  // }
-
-
-  
-  $scope.update = function(viewOwner){
-    OwnerService.update(viewOwner)
-    .then(function(){
-      swal("Great!", "Your owner has been saved!", "success")
-    }, function(err){
-      console.log(err);
-    })
-  }
+  OwnerService.update(viewOwner)
+  .then(function(){
+    swal("Great!", "Your owner has been saved!", "success")
+  }, function(err){
+    console.log(err);
+  })
+}
 
 
 
 
-  $scope.deleteOwner = function(owner){
-    console.log('delete')
-    swal({   title: "Are you sure?",   
-      text: "You will not be able to recover this owners info!",
-      type: "warning",
-      showCancelButton: true, 
-      confirmButtonColor: "#DD6B55", 
-      confirmButtonText: "Yes, delete it!",
-      closeOnConfirm: false },
-      function(){   
-        OwnerService.delete(owner)
-        .then(function(){
-          var index = $scope.owners.indexOf(owner);
-          $scope.owners.splice(index, 1);
-          $scope.viewOwner = null;
-          swal("Deleted!",
-           "Your owners has been deleted.",
-           "success"); 
-        })
-      }, function(err){
-        console.log('err ' , err);
+$scope.deleteOwner = function(viewOwner){
+  console.log('delete')
+  swal({   title: "Are you sure?",   
+    text: "You will not be able to recover this owners info!",
+    type: "warning",
+    showCancelButton: true, 
+    confirmButtonColor: "#DD6B55", 
+    confirmButtonText: "Yes, delete it!",
+    closeOnConfirm: false },
+    function(){   
+      OwnerService.delete(viewOwner)
+      .then(function(){
+        var index = $scope.owners.indexOf(viewOswner);
+        $scope.owners.splice(index, 1);
+        $scope.viewOwner = null;
+        swal("Deleted!",
+         "Your owners has been deleted.",
+         "success"); 
       })
-  }
+    }, function(err){
+      console.log('err ' , err);
+    })
+}
 
 })
 

@@ -5,8 +5,8 @@
 <div class="owner-col">
   <ul >
     <li><a ng-click="viewOwner = null">+Add Owner<a/></li>
-    <li><a ng-repeat="owner in owners track by $index" ng-click="viewOwner = owner">{{owner.name}}</a></li>
-    <li ng-click="viewOwner = true">stuff</li>
+    <li ng-repeat="owner in owners track by $index"><a ng-click="editOwner(owner)">{{owner.name}}</a></li>
+    <!-- <li ng-click="viewOwner = true">stuff</li> -->
 
   </ul>
 
@@ -14,19 +14,24 @@
 </div><div class="middle-col">
   <div class="card" ng-show="viewOwner">
   <h3>Owners Card</h3>
+  <form ng-submit="saveEdit(viewOwner)">
     <label for="">Name</label>
-    <input>{{viewOwner.name}}</input>
+    <input ng-model="viewOwner.name"></input>
     <br>
     <label for="">Age</label>
-    <input>{{viewOwner.age}}</input>
+    <input ng-model="viewOwner.age"></input>
     <br>
     <label for="">Notes:</label>
-    <textarea>{{viewOwner.notes}}</textarea>
+    <textarea ng-model="viewOwner.notes"></textarea>
     <br>
     <label for="Minion"></label>
-    <input>{{viewOwner.mongoose.Schema.Types.ObjectId}}</input>
+    <!-- <input ng-model="viewOwner.mongoose.Schema.Types.ObjectId"</input> -->
     <br>
     <img ng-src="{{viewOwner.photo}}">
+    <input type="text" ng-model="viewOwner.photo">
+    <button type='submit'>Save Edit</button>
+    <button id="delete" ng-click="deleteOwner(viewOwner)">Delete Owner</button>
+    </form>
   </div><div class="card" ng-hide="viewOwner">
     <form ng-submit="addOwner(newOwner)">
     <h3>New Owner</h3>
@@ -35,7 +40,7 @@
       <input ng-model="newOwner.name" type="text" required>
       <br>
       <label for="">Photo URL</label>
-      <input ng-model="newOwner.photo" type="string" min="1" max="12">
+      <input ng-model="newOwner.photo" type="img">
       <br>
 
 
@@ -44,7 +49,7 @@
       <br>
 
       <label for="">Minions Adopted:</label>
-      <input ng-model="newOwner.mongoose.Schema.Types.ObjectId" type="mongoose.Schema.Types.ObjectId">
+      <!-- <input ng-model="newOwner.mongoose.Schema.Types.ObjectId" type="mongoose.Schema.Types.ObjectId"> -->
         
       <br>
 

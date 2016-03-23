@@ -5,6 +5,7 @@ var OwnerSchema = mongoose.Schema({
   age: {type: Number, },
   notes: {type: String},
   minion: [{type: mongoose.Schema.Types.ObjectId, ref: 'Minion' }],
+  photo: {type: String}
 });
 
 module.exports = mongoose.model("Owner", OwnerSchema)
