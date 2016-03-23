@@ -1,15 +1,16 @@
 
 * {
   font-family: 'Raleway', sans-serif;
+  text-align: center;
 }
 
 .card {
-background-color: #FFD502;
-padding: 20px;
-width: 50%;
--webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  background-color: #FFD502;
+  padding: 20px;
+  width: 50%;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 
 }
 
@@ -20,13 +21,11 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .minion-col {
+  width: 30%;
   display: inline-block;
   float:right;
 }
 
-.card {
-  margin: auto 0;
-}
 
 .middle-col {
   width: 60%;
@@ -42,6 +41,7 @@ li {
   width: 130px;
   border-radius: 10px;
   list-style-type: none;
+  margin: 15px;
   &:hover {
     background-color: #0627C2;
     color: white;
@@ -87,6 +87,8 @@ nav  {
 }
 
 button {
+  margin: 20px;
+  text-align: center;
   height: 30px;
   width: 90px;
   color: #fff;
@@ -110,17 +112,19 @@ button {
 }
 
 input {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    border-bottom: 2px solid black;
-    width: 90px;
-    margin-bottom: 15px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 2px solid black;
+  width: 90px;
+  margin-bottom: 15px;
 }
 
 img{
-  border: 2px solid black;
   max-height: 100px;
   max-width: 100px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 

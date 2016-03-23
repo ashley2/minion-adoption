@@ -1,11 +1,11 @@
 
 
 
-<div clas="listTitle">Owners:</div>
+<!-- <div clas="listTitle">Owners:</div> -->
 <div class="owner-col">
   <ul >
     <li><a ng-click="viewOwner = null">+Add Owner<a/></li>
-    <li ng-repeat="owner in owners track by $index"><a ng-click="editOwner(owner)">{{owner.name}}</a></li>
+    <li ng-repeat="owner in owners track by $index"><a ng-click="editOwner(owner)">{{owner.name}}</a><img ng-src="{{owner.photo}}"></li>
     <!-- <li ng-click="viewOwner = true">stuff</li> -->
 
   </ul>

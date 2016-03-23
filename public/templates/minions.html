@@ -1,6 +1,13 @@
 
 
-<div class="middle-col minion-middle">
+<button ng-click="showAvailable()">Available</button>
+<button ng-click="showAdopted()">Adopted</button>
+<button ng-click="showAll()">Show All</button>
+
+
+<br>
+
+<div class="middle-col middle-min">
   <div class="card" ng-show="viewMinion">
     <h3>Minions Card</h3>
     <form ng-submit="saveEdit(viewMinion)">
@@ -16,20 +23,18 @@
       <label for="">Notes:</label>
       <textarea ng-model="viewMinion.notes"></textarea>
       <br>
-
-      <label for="">Adopted?</label>
-      <input type="checkbox">
-
-      <br>
-      
       <img ng-src="{{viewMinion.photo}}">
       <input type="text" ng-model="viewMinion.photo">
+      <br>
+
+      <div ng-hide="viewMinion.isAdopted">This pet is up for adoption!<button ng-click="adoptMinion(viewMinion)">Adopt This Pet</button></div>
       <button type='submit'>Save Edit</button>
     </form>
     <button id="delete" ng-click="deleteMinion(viewMinion)">Delete Minion</button>
   </div><div class="card" ng-hide="viewMinion">
   <form ng-submit="addMinion(newMinion)">
-    <h3>New Minion</h3>
+
+<!-- minions -->
 
     <label>Name:</label>
     <input ng-model="newMinion.name" type="text" required>
@@ -38,29 +43,28 @@
     <input ng-model="newMinion.photo" type="img">
     <br>
 
-
     <label>Eyes</label>
-    <input ng-model="newMinion.eyes" type="text">
+    <input ng-model="newMinion.eyes" type="number">
     <br>  
 
     <label>Hair</label>
     <input ng-model="newMinion.hair" type="text">
     <br>
-    
-    <div>Available for adoption</div>
 
     <label for="notes">Notes:</label>
     <textarea ng-model="newMinion.notes" cols="9" rows="3"></textarea>
+
 
     <button type="submit">Submit Minion</button>
   </form>
 </div>
 
 </div><div class="minion-col">
-<div class="listTitle">Minions:</div>
+<!-- <div class="listTitle">Minions:</div> -->
 <ul >
   <li><a ng-click="viewMinion = null">+Add Minion<a/></li>
-  <li ng-repeat="minion in minions track by $index"><a ng-click="editMinion(minion)">{{minion.name}}</a></li>
+  <li ng-repeat="minion in minions track by $index"><a ng-click="editMinion(minion)">{{minion.name}}</a><img ng-src="{{minion.photo}}"></li>
+
   <!-- <li ng-click="viewOwner = true">stuff</li> -->
 
 </ul>

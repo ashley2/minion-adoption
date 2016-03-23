@@ -9,12 +9,11 @@ angular.module('minionApp')
 
     var minions = res.data;
     $scope.minions = minions;
-
+    // var totalMinions
 
   }, function(err){
     console.error(err);
   });
-
 
   $scope.addMinion = (newMinion) => {
 
@@ -45,8 +44,6 @@ angular.module('minionApp')
   })
 }
 
-
-
   $scope.deleteMinion = function(viewMinion){
     swal({   title: "Are you sure?",   
       text: "You will not be able to recover this minions info!",
@@ -69,6 +66,35 @@ angular.module('minionApp')
         console.log('err ' , err);
       })
   }
+
+
+
+
+$scope.showAvailable = function(){
+  console.log('showavail')
+     $scope.minions = !$scope.minions.isAdopted
+}
+//filter adopted
+$scope.showAdopted = function(){
+  console.log('showadopted')
+   $scope.minions = $scope.minions.filter
+   //show array that is true
+}
+
+$scope.showAll = function(){
+  console.log('showall')
+  $scope.minions = $scope.minions
+}
+
+// $scope.adoptMinion = function(viewMinion){
+
+//   //toggle on success
+//   $scpope.viewMinion = null;
+// }
+
+
+
+
 
 })
 
