@@ -31,7 +31,7 @@
     <input type="text" ng-model="viewOwner.photo">
 
     <ul>
-    <li ng-repeat="minion in viewOwner.minion">{{minion.name}}{{minion.photo}}</li>
+    <li ng-repeat="minion in viewOwner.minions track by $index">{{minion.name}}</li><img ng-src="{{minion.photo}}">
    </ul>
 
    <button type='submit'>Save Edit</button>

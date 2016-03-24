@@ -8,23 +8,24 @@ angular.module('minionApp')
 });
 
  $scope.owners = [];
+ getAll()
+ function getAll(){
+   OwnerService.getAll()
+   .then(function(res){
+
+    var owners = res.data;
+    $scope.owners = owners;
+
+    console.log(owners)
+
+  }, function(err){
+    console.error(err);
+  });
+ }
+ 
 
 
- OwnerService.getAll()
- .then(function(res){
-
-  var owners = res.data;
-  $scope.owners = owners;
-
-  console.log(owners)
-
-}, function(err){
-  console.error(err);
-});
-
-
-
- $scope.addOwner = (newOwner) => {
+$scope.addOwner = (newOwner) => {
 
   OwnerService.create($scope.newOwner)
   .then(function(res){
@@ -113,7 +114,7 @@ $scope.chosenMinion = function(minion){
  $scope.addMinion = function(ownerId, minionId) {
   OwnerService.addMinion(ownerId, minionId)
   .then(function(){
-    
+    getAll()
 
     swal("Great!", "You have adopted a minion!", "success")
   }, function(err){

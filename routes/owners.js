@@ -8,14 +8,14 @@ var Minion = require('../models/minion');
 
 
 
-router.get('/', (req, res) => {
-  Owner.find({}, (err, data) => {
-    if(err) {
-      return res.status(499).send(err)
-    }
-    res.send(data);
-  })
-})
+// router.get('/', (req, res) => {
+//   Owner.find({}).populate('minions').exec((err, data) => {
+//    if(err) {
+//      return res.status(499).send(err)
+//    }
+//    res.send(data);
+//  })
+// })
 
 router.get('/minions/available', (req, res) => {
   Minion.find({isAdopted:false}, (err, data) => {
@@ -65,7 +65,7 @@ router.put('/:ownerId/addMinion/:minionId', function(req, res){
     Minion.findById(req.params.minionId, function(err, minion){
 
      if(err ||  !minion) return res.status(499).send(err || "Minion not found.");
-     owner.minions.push(req.params.minionid)
+      owner.minions.push(minion._id)
 
      minion.isAdopted = true;
      minion.save(function(err, savedMinion){
