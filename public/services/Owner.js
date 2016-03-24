@@ -25,7 +25,7 @@ app.service('OwnerService', function($http){
 };
 
 this.addMinion = function(ownerId, minionId){
-    return $http.put(`/owners/${ownerId}/addMinion/$minionId}`)
+    return $http.put(`/owners/${ownerId}/addMinion/${minionId}`)
   }
 
 })

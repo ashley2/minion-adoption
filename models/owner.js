@@ -4,7 +4,7 @@ var OwnerSchema = mongoose.Schema({
   name:  {type: String, required:true},
   age: {type: Number, },
   notes: {type: String},
-  minion: [{type: mongoose.Schema.Types.ObjectId, ref: 'Minion' }],
+  minions: [{type: mongoose.Schema.Types.ObjectId, ref: 'Minion' }],
   photo: {type: String}
 });
 
