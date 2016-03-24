@@ -69,24 +69,21 @@
 
 </div>
 
-
-
 <div id="modal1" class="modal modal-fixed-footer">
   <div class="modal-content">
     <h4>Adopt A Minion!</h4>
     <p>Please select which minion you would like to adopt!</p>
 
 
-     <div ng-repeat="minion in available track by $index" ng-click="chooseMinion(minion)">
-      <div>{{minion.name}}</div>
-      <div>{{minion.photo}}</div>
-
-    </div>
-
+    <div ng-repeat="minion in available track by $index" ng-click="chosenMinion(minion)" ng-class="{'selected':
+    minion === chosenMinion}">
+    <div>{{minion.name}}</div><img ng-src={{minion.photo}}>
 
   </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Submit</a>
-  </div>
+
+</div>
+<div class="modal-footer">
+  <a href="#!" class="modal-action modal-close waves-effect waves btn-flat ">Cancel</a>
+  <button ng-click="addMinion(owner._id, minion._Id)" class="modal-action modal-close waves-effect waves btn-flat ">Adopt!</button>
+</div>
 </div>

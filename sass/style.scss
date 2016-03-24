@@ -90,7 +90,7 @@ button {
   margin: 20px;
   text-align: center;
   height: 30px;
-  width: 90px;
+  width: 100px;
   color: #fff;
   background-color: #6496c8;
   border: none;
@@ -126,5 +126,9 @@ img{
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.selected {
+  border: 3px solid red;
 }
 

@@ -86,12 +86,47 @@ $scope.seeAdoptList = function() {
   MinionService.getAvailable()
   .then(function(res){
     console.log('res', res);
-    $scope.availMinions = res.data
-    console.log('$scope.availMinions ' , $scope.availMinions);
+    $scope.available = res.data
 
   }, function(err){
     console.error(err);
   });
 }
 
+
+// $scope.chosenMinions = []; // array of chosen minions
+
+$scope.chosen = null; 
+
+
+$scope.chosenMinion = function(minion){  
+ $scope.chosen = minion;
+ $scope.ownerId = $scope.chosen._id
+
+}
+
+ // $scope.chosenMinions.push($scope.chosen._id)
+
+
+$scope.addMinion = function(ownerId, MinionId) {
+ownerId = $scope.ownerId
+console.log('ownerId ' , ownerId);
+  OwnerService.update(owner._Id, minion._Id)
+  .then(function(){
+    swal("Great!", "You have adopted a minion!", "success")
+  }, function(err){
+    console.log(err);
+  })
+}
+
+
+
 })
+
+
+
+
+
+
+
+
