@@ -30,14 +30,16 @@
     <img ng-src="{{viewOwner.photo}}">
     <input type="text" ng-model="viewOwner.photo">
 
+    <ul>
+    <li ng-repeat="minion in viewOwner.minion">{{minion.name}}{{minion.photo}}</li>
+   </ul>
 
-    <!-- <input ng-model="viewOwner.mongoose.Schema.Types.ObjectId"</input> -->
-    <button type='submit'>Save Edit</button>
-  </form>
+   <button type='submit'>Save Edit</button>
+ </form>
 
-  <button ng-click="seeAdoptList()"data-target="modal1" class="modal-trigger waves-effect waves-light btn">Adopt A Minion!</button>
+ <button ng-click="seeAdoptList()"data-target="modal1" class="modal-trigger waves-effect waves-light btn">Adopt A Minion!</button>
 
-  <button id="delete" ng-click="deleteOwner(viewOwner)">Delete Owner</button>
+ <button id="delete" ng-click="deleteOwner(viewOwner)">Delete Owner</button>
 
 </div><div class="card" ng-hide="viewOwner">
 <form ng-submit="addOwner(newOwner)">
@@ -56,7 +58,7 @@
   <br>
 
   <label for="">Minions Adopted:</label>
-  <!-- <input ng-model="newOwner.mongoose.Schema.Types.ObjectId" type="mongoose.Schema.Types.ObjectId"> -->
+  
 
   <br>
 
@@ -84,6 +86,6 @@
 </div>
 <div class="modal-footer">
   <a href="#!" class="modal-action modal-close waves-effect waves btn-flat ">Cancel</a>
- <button ng-click="addMinion(viewOwner._id, minionId)" class="modal-action modal-close waves-effect waves btn-flat ">Adopt!</button>
+  <button ng-click="addMinion(viewOwner._id, minionId)" class="modal-action modal-close waves-effect waves btn-flat ">Adopt!</button>
 </div>
 </div>

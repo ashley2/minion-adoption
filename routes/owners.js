@@ -26,6 +26,16 @@ router.get('/minions/available', (req, res) => {
   })
 })
 
+router.get('/', (req, res) => {
+ Owner.find({}).populate('minions').exec((err, data) => {
+   if(err) {
+     return res.status(499).send(err)
+   }
+   res.send(data);
+ })
+})
+the generic get function
+
 
 router.post('/', (req, res) => {
   Owner.create(req.body, (err, newOwner) =>{
@@ -57,25 +67,25 @@ router.put('/:ownerId/addMinion/:minionId', function(req, res){
      if(err ||  !minion) return res.status(499).send(err || "Minion not found.");
      owner.minions.push(req.params.minionid)
 
-     minion.isadopted = true;
+     minion.isAdopted = true;
      minion.save(function(err, savedMinion){
        owner.save(function(err, savedOwner){
        })
        res.status(err ? 499 : 200).send(err || savedMinion);
      })
-     });
-   })
+   });
   })
+})
 
-  router.delete('/:id', (req, res) => {
-    Owner.findByIdAndRemove(req.params.id, (err) => {
-      if(err) {
-        return res.status(499).send(err)
-      }
-      res.end();
-    })
+router.delete('/:id', (req, res) => {
+  Owner.findByIdAndRemove(req.params.id, (err) => {
+    if(err) {
+      return res.status(499).send(err)
+    }
+    res.end();
   })
+})
 
 
 
-  module.exports = router;
+module.exports = router;
