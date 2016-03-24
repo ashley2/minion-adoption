@@ -1,15 +1,19 @@
 angular.module('minionApp')
 .controller('minionsCtrl', function($scope, MinionService, $stateParams){
 
-  $scope.minions = [];
 
-  
+  $scope.minions = [];
+  var totalMinions = [];
+
   MinionService.getAll()
   .then(function(res){
 
     var minions = res.data;
     $scope.minions = minions;
-    // var totalMinions
+
+    totalMinions = res.data;
+    $scope.minions = totalMinions; 
+
 
   }, function(err){
     console.error(err);
@@ -34,15 +38,15 @@ angular.module('minionApp')
     $scope.viewMinion = minion;
   }
 
- $scope.saveEdit = function(viewMinion){
-  $scope.viewMinion = null;
-  MinionService.update(viewMinion)
-  .then(function(){
-    swal("Great!", "Your minion has been saved!", "success")
-  }, function(err){
-    console.log(err);
-  })
-}
+  $scope.saveEdit = function(viewMinion){
+    $scope.viewMinion = null;
+    MinionService.update(viewMinion)
+    .then(function(){
+      swal("Great!", "Your minion has been saved!", "success")
+    }, function(err){
+      console.log(err);
+    })
+  }
 
   $scope.deleteMinion = function(viewMinion){
     swal({   title: "Are you sure?",   
@@ -67,31 +71,25 @@ angular.module('minionApp')
       })
   }
 
+  $scope.viewAvailable = function(){
+    $scope.minions = totalMinions.filter(e=>!e.isAdopted)
+  }
+  $scope.viewAdopted = function(){
+    $scope.minions = totalMinions.filter(e=>e.isAdopted)
+  }
+  $scope.viewAll = function(){
+    $scope.minions = totalMinions;
+  }
 
 
 
-$scope.showAvailable = function(){
-  console.log('showavail')
-     $scope.minions = !$scope.minions.isAdopted
-}
-//filter adopted
-$scope.showAdopted = function(){
-  console.log('showadopted')
-   $scope.minions = $scope.minions.filter
-   //show array that is true
-}
-
-$scope.showAll = function(){
-  console.log('showall')
-  $scope.minions = $scope.minions
-}
 
 // $scope.adoptMinion = function(viewMinion){
 
 //   //toggle on success
 //   $scpope.viewMinion = null;
 // }
-
+// }
 
 
 

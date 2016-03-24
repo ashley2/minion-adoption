@@ -1,12 +1,12 @@
 
 
 
-<!-- <div clas="listTitle">Owners:</div> -->
+
 <div class="owner-col">
   <ul >
     <li><a ng-click="viewOwner = null">+Add Owner<a/></li>
     <li ng-repeat="owner in owners track by $index"><a ng-click="editOwner(owner)">{{owner.name}}</a><img ng-src="{{owner.photo}}"></li>
-    <!-- <li ng-click="viewOwner = true">stuff</li> -->
+
 
   </ul>
 
@@ -25,13 +25,20 @@
     <textarea ng-model="viewOwner.notes"></textarea>
     <br>
     <label for="Minion"></label>
-    <!-- <input ng-model="viewOwner.mongoose.Schema.Types.ObjectId"</input> -->
+
     <br>
     <img ng-src="{{viewOwner.photo}}">
     <input type="text" ng-model="viewOwner.photo">
+
+
+    <!-- <input ng-model="viewOwner.mongoose.Schema.Types.ObjectId"</input> -->
     <button type='submit'>Save Edit</button>
   </form>
+
+  <button ng-click="seeAdoptList()"data-target="modal1" class="modal-trigger waves-effect waves-light btn">Adopt A Minion!</button>
+
   <button id="delete" ng-click="deleteOwner(viewOwner)">Delete Owner</button>
+
 </div><div class="card" ng-hide="viewOwner">
 <form ng-submit="addOwner(newOwner)">
   <h3>New Owner</h3>
@@ -60,4 +67,26 @@
 </form>
 </div>
 
+</div>
+
+
+
+<div id="modal1" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>Adopt A Minion!</h4>
+    <p>Please select which minion you would like to adopt!</p>
+
+
+     <div ng-repeat="minion in available track by $index" ng-click="chooseMinion(minion)">
+      <div>{{minion.name}}></div>
+      <div>{{minion.photo}}></div>
+
+    </div>
+
+
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Submit</a>
+  </div>
 </div>

@@ -1,35 +1,41 @@
 angular.module('minionApp')
-.controller('ownersCtrl', function($scope, OwnerService, $stateParams){
+.controller('ownersCtrl', function($scope, OwnerService, $stateParams, MinionService){
 
-  $scope.owners = [];
 
-  
-  OwnerService.getAll()
+ $(document).ready(function(){
+  $('.modal-trigger').leanModal();
+
+});
+
+ $scope.owners = [];
+
+
+ OwnerService.getAll()
+ .then(function(res){
+
+  var owners = res.data;
+  $scope.owners = owners;
+
+  console.log(owners)
+
+}, function(err){
+  console.error(err);
+});
+
+
+
+ $scope.addOwner = (newOwner) => {
+
+  OwnerService.create($scope.newOwner)
   .then(function(res){
-
-    var owners = res.data;
-    $scope.owners = owners;
-
-    console.log(owners)
+    $scope.owners.push(res.data)
+    console.log('res.data', res.data)
+    $scope.owner = {}
 
   }, function(err){
-    console.error(err);
-  });
-
-
-
-  $scope.addOwner = (newOwner) => {
-
-    OwnerService.create($scope.newOwner)
-    .then(function(res){
-      $scope.owners.push(res.data)
-      console.log('res.data', res.data)
-      $scope.owner = {}
-
-    }, function(err){
-      console.log(err)
-    }); 
-  };  
+    console.log(err)
+  }); 
+};  
 
 // show/hide views
 $scope.viewOwner = null;
@@ -72,5 +78,19 @@ $scope.deleteOwner = function(viewOwner){
     })
 }
 
-})
 
+
+$scope.seeAdoptList = function() {
+
+
+  MinionService.getAvailable()
+  .then(function(res){
+    console.log('res', res);
+
+      
+  }, function(err){
+    console.error(err);
+  });
+}
+
+})

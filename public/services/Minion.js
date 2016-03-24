@@ -11,8 +11,13 @@ app.service('MinionService', function($http){
     return $http.get('/minions')
   };
 
+  this.getAvailable = function() {
+
+    return $http.get('/minions/')
+  }
+
   this.create = function(newMinion){
-    return $http.post('/minions',newMinion);
+    return $http.post('/minions', newMinion);
   }
 
   this.delete = function(viewMinion) {

@@ -1,8 +1,8 @@
 
 
-<button ng-click="showAvailable()">Available</button>
-<button ng-click="showAdopted()">Adopted</button>
-<button ng-click="showAll()">Show All</button>
+<button ng-click="viewAll()">View All</button>
+<button ng-click="viewAvailable()">View Available</button>
+<button ng-click="viewAdopted()">View Adopted</button>
 
 
 <br>
@@ -27,7 +27,7 @@
       <input type="text" ng-model="viewMinion.photo">
       <br>
 
-      <div ng-hide="viewMinion.isAdopted">This pet is up for adoption!<button ng-click="adoptMinion(viewMinion)">Adopt This Pet</button></div>
+      <!-- <div ng-hide="viewMinion.isAdopted">This pet is up for adoption!<button ng-click="adoptMinion(viewMinion)">Adopt This Pet</button></div> -->
       <button type='submit'>Save Edit</button>
     </form>
     <button id="delete" ng-click="deleteMinion(viewMinion)">Delete Minion</button>
@@ -63,9 +63,12 @@
 <!-- <div class="listTitle">Minions:</div> -->
 <ul >
   <li><a ng-click="viewMinion = null">+Add Minion<a/></li>
-  <li ng-repeat="minion in minions track by $index"><a ng-click="editMinion(minion)">{{minion.name}}</a><img ng-src="{{minion.photo}}"></li>
+  <li ng-repeat="minion in minions track by $index"><a ng-click="editMinion(minion) | filter:adopted:available:all">{{minion.name}}</a><img ng-src="{{minion.photo}}"></li>
 
   <!-- <li ng-click="viewOwner = true">stuff</li> -->
 
 </ul>
 </div>
+
+
+

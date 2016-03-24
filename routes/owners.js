@@ -15,6 +15,14 @@ router.get('/', (req, res) => {
   })
 })
 
+router.get('/minions/available', (req, res) => {
+  Minion.find({isAdopted:false}, (err, data) => {
+    if(err) {
+      return res.status(499).send(err)
+    }
+    res.send(data)
+  })
+})
 
 
 router.post('/', (req, res) => {
