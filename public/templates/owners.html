@@ -76,7 +76,7 @@
 
 
     <div ng-repeat="minion in available track by $index" ng-click="chosenMinion(minion)" ng-class="{'selected':
-    minion === chosenMinion}">
+    minion === chosen}">
     <div>{{minion.name}}</div><img ng-src={{minion.photo}}>
 
   </div>
