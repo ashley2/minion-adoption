@@ -101,17 +101,17 @@ $scope.chosen = null;
 
 $scope.chosenMinion = function(minion){  
  $scope.chosen = minion;
- $scope.ownerId = $scope.chosen._id
+ $scope.minionId = $scope.chosen._id
 
 }
 
  // $scope.chosenMinions.push($scope.chosen._id)
 
 
-$scope.addMinion = function(ownerId, MinionId) {
-ownerId = $scope.ownerId
-console.log('ownerId ' , ownerId);
-  OwnerService.update(owner._Id, minion._Id)
+$scope.addMinion = function(ownerId, minionId) {
+  console.log('owner', ownerId)
+  console.log('minion', minionId)
+  OwnerService.addMinion(ownerId, minionId)
   .then(function(){
     swal("Great!", "You have adopted a minion!", "success")
   }, function(err){

@@ -47,21 +47,22 @@ router.put('/', (req, res) => {
 })
 
 
-// router.put('/:ownerId/addClient/:miniontId', function(req, res){
-//   Owner.findById(req.params.ownerId, function(err, owner){
-//     if(err ||  !owner) return res.status(400).send(err || "Owner not found.");
+router.put('/:ownerId/addMinion/:minionId', function(req, res){
+  Owner.findById(req.params.ownerId, function(err, owner){
+    
+    if(err ||  !owner) return res.status(400).send(err || "Owner not found.");
 
-//     Minion.findById(req.params.minionId, function(err, minion){
-//      if(err ||  !minion) return res.status(400).send(err || "Minion not found.");
-//      owner.minions.push(req.params.minion._id); //or can be (minion._id)
+    Minion.findById(req.params.minionId, function(err, minion){
+     if(err ||  !minion) return res.status(499).send(err || "Minion not found.");
+     owner.minions.push(req.params.minion._id); //or can be (minion._id)
 
 
-//      Owner.save(function(err, savedOwner){
-//       res.status(err ? 400 : 200).send(err || savedOwner);
-//     })
-//    });
-//   })
-// })
+     Owner.save(function(err, savedOwner){
+      res.status(err ? 499 : 200).send(err || savedOwner);
+    })
+   });
+  })
+})
 
 router.delete('/:id', (req, res) => {
   Owner.findByIdAndRemove(req.params.id, (err) => {
