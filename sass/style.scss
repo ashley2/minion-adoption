@@ -5,9 +5,10 @@
 }
 
 .card {
+  border-radius: 15px;
   background-color: #FFD502;
   padding: 20px;
-  width: 50%;
+  width: 70%;
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -17,7 +18,7 @@
 .owner-col {
   width: 30%;
   display: inline-block;
-  // border: 2px solid green;
+
 }
 
 .minion-col {
@@ -28,9 +29,10 @@
 
 
 .middle-col {
+  float: top;
   width: 60%;
+  margin: auto 0;
   display: inline-block;
-// border: 2px solid blue;
 }
 
 
@@ -41,10 +43,8 @@ li {
   width: 130px;
   border-radius: 10px;
   list-style-type: none;
-  margin: 15px;
+  margin: 20px;
   &:hover {
-    background-color: #0627C2;
-    color: white;
     cursor: pointer;
   }
 }
@@ -54,7 +54,7 @@ nav  {
   top: 0;
   margin: 0;
   margin-bottom: 60px;
-  height: 60px;
+  height: 80px;
   width: 100%;
   background-color: #FFD502;
   ul{
@@ -83,10 +83,11 @@ nav  {
 
 #title {
   color: blue;
-  font-size: 40px;
+  font-size: 5rem;
 }
 
 button {
+  display: inline-block;
   margin: 20px;
   text-align: center;
   height: 30px;
@@ -115,20 +116,38 @@ input {
   border: 0;
   outline: 0;
   background: transparent;
-  border-bottom: 2px solid black;
+  // border-bottom: 2px solid black;
   width: 90px;
   margin-bottom: 15px;
 }
 
 img{
-  max-height: 100px;
-  max-width: 100px;
+  background-color: white;
+  display: inline-block;
+  min-height: 10px;
+  min-width: 100px;
+
+  border-radius: 50%;
+  max-height: 150px;
+  max-width: 150px;
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  &:hover {
+     opacity: .5;
+  }
 }
 
 .selected {
-  border: 3px solid red;
+  background-color: lightgray;
+  width: 50%;
 }
+// #adoptable {
+ 
+    
+// }
 
+
+#modal1 {
+  width: 70%;
+}

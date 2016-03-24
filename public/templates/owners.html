@@ -6,12 +6,10 @@
   <ul >
     <li><a ng-click="viewOwner = null">+Add Owner<a/></li>
     <li ng-repeat="owner in owners track by $index"><a ng-click="editOwner(owner)">{{owner.name}}</a><img ng-src="{{owner.photo}}"></li>
-
-
   </ul>
+</div>
 
-
-</div><div class="middle-col">
+<div class="middle-col">
 <div class="card" ng-show="viewOwner">
   <h3>Owners Card</h3>
   <form ng-submit="saveEdit(viewOwner)">
@@ -33,13 +31,13 @@
 
     <label for="">Minions Adopted:</label>
     <ul>
-    <li ng-repeat="minion in viewOwner.minions track by $index">{{minion.name}}</li><img ng-src="{{minion.photo}}">
+      <li ng-repeat="minion in viewOwner.minions track by $index">{{minion.name}}</li><img ng-src="{{minion.photo}}">
     </ul>
 
     <button type='submit'>Save Edit</button>
   </form>
 
-  <button ng-click="seeAdoptList()"data-target="modal1" class="modal-trigger waves-effect waves-light btn">Adopt A Minion!</button>
+  <button ng-click="seeAdoptList()"data-target="modal1" class="modal-trigger">Adopt A Minion!</button>
 
   <button id="delete" ng-click="deleteOwner(viewOwner)">Delete Owner</button>
 
@@ -77,7 +75,7 @@
 
     <div ng-repeat="minion in available track by $index" ng-click="chosenMinion(minion)" ng-class="{'selected':
     minion === chosen}">
-    <div>{{minion.name}}</div><img ng-src={{minion.photo}}>
+    <div id="adoptable">{{minion.name}}</div><img ng-src={{minion.photo}}>
 
   </div>
 

@@ -96,8 +96,6 @@ $scope.seeAdoptList = function() {
 }
 
 
-// $scope.chosenMinions = []; // array of chosen minions
-
 $scope.chosen = null; 
 
 
@@ -109,7 +107,6 @@ $scope.chosenMinion = function(minion){
 
 }
 
- // $scope.chosenMinions.push($scope.chosen._id)
 
 
  $scope.addMinion = function(ownerId, minionId) {
