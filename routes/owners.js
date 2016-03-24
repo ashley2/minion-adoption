@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
    res.send(data);
  })
 })
-the generic get function
+
 
 
 router.post('/', (req, res) => {
