@@ -22,7 +22,7 @@ angular.module('minionApp')
     console.error(err);
   });
  }
- 
+
 
 
 $scope.addOwner = (newOwner) => {
@@ -88,6 +88,7 @@ $scope.seeAdoptList = function() {
   .then(function(res){
     console.log('res', res);
     $scope.available = res.data
+    console.log($scope.available);
 
   }, function(err){
     console.error(err);

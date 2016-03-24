@@ -13,7 +13,7 @@ app.service('MinionService', function($http){
 
   this.getAvailable = function() {
 
-    return $http.get('/minions/')
+    return $http.get('/owners/minions/available')
   }
 
   this.create = function(newMinion){

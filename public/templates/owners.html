@@ -30,16 +30,18 @@
     <img ng-src="{{viewOwner.photo}}">
     <input type="text" ng-model="viewOwner.photo">
 
+
+    <label for="">Minions Adopted:</label>
     <ul>
     <li ng-repeat="minion in viewOwner.minions track by $index">{{minion.name}}</li><img ng-src="{{minion.photo}}">
-   </ul>
+    </ul>
 
-   <button type='submit'>Save Edit</button>
- </form>
+    <button type='submit'>Save Edit</button>
+  </form>
 
- <button ng-click="seeAdoptList()"data-target="modal1" class="modal-trigger waves-effect waves-light btn">Adopt A Minion!</button>
+  <button ng-click="seeAdoptList()"data-target="modal1" class="modal-trigger waves-effect waves-light btn">Adopt A Minion!</button>
 
- <button id="delete" ng-click="deleteOwner(viewOwner)">Delete Owner</button>
+  <button id="delete" ng-click="deleteOwner(viewOwner)">Delete Owner</button>
 
 </div><div class="card" ng-hide="viewOwner">
 <form ng-submit="addOwner(newOwner)">
@@ -57,10 +59,6 @@
   <input ng-model="newOwner.age" type="number" min="1" max="90">
   <br>
 
-  <label for="">Minions Adopted:</label>
-  
-
-  <br>
 
   <label for="notes">Notes:</label>
   <textarea ng-model="newOwner.notes" cols="9" rows="3"></textarea>
