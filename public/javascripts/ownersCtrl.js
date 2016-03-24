@@ -86,8 +86,9 @@ $scope.seeAdoptList = function() {
   MinionService.getAvailable()
   .then(function(res){
     console.log('res', res);
+    $scope.availMinions = res.data
+    console.log('$scope.availMinions ' , $scope.availMinions);
 
-      
   }, function(err){
     console.error(err);
   });
