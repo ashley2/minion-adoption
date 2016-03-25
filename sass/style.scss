@@ -5,6 +5,7 @@
 }
 
 .card {
+  margin: auto 0;
   border-radius: 15px;
   background-color: #FFD502;
   padding: 20px;
@@ -29,10 +30,11 @@
 
 
 .middle-col {
-  float: top;
+  vertical-align: top;
   width: 60%;
   margin: auto 0;
   display: inline-block;
+
 }
 
 

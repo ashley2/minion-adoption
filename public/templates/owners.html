@@ -3,13 +3,11 @@
 
 
 <div class="owner-col">
-  <ul >
+  <ul>
     <li><a ng-click="viewOwner = null">+Add Owner<a/></li>
     <li ng-repeat="owner in owners track by $index"><a ng-click="editOwner(owner)">{{owner.name}}</a><img ng-src="{{owner.photo}}"></li>
   </ul>
-</div>
-
-<div class="middle-col">
+</div><div class="middle-col">
 <div class="card" ng-show="viewOwner">
   <h3>Owners Card</h3>
   <form ng-submit="saveEdit(viewOwner)">
@@ -41,7 +39,10 @@
 
   <button id="delete" ng-click="deleteOwner(viewOwner)">Delete Owner</button>
 
-</div><div class="card" ng-hide="viewOwner">
+</div>
+
+
+<div class="card" ng-hide="viewOwner">
 <form ng-submit="addOwner(newOwner)">
   <h3>New Owner</h3>
 
