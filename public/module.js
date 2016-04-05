@@ -15,6 +15,10 @@ var app = angular.module('minionApp', ['ui.router'])
     templateUrl: "templates/minions.html",
     controller: "minionsCtrl"
   })
+  .state('login', {
+    url: "/login/",
+    templateUrl: "templates/login.html"
+  })
   
 
 

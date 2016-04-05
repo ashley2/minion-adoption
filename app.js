@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var stormpath = require('express-stormpath');
+
 
 const mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/minions'
 require("mongoose").connect(mongoUrl, function(err){
@@ -13,6 +15,7 @@ require("mongoose").connect(mongoUrl, function(err){
     console.log(`MongoDB connected! ${mongoUrl}`);
   }
 });
+
 
 var app = express();
 
@@ -32,13 +35,31 @@ app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/owners', require('./routes/owners'));
 app.use('/minions', require('./routes/minions'));
+// app.use('/login', require('./routes/login'));
 
+// require('dotenv').config()
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
+
+app.use(stormpath.init(app, {
+  apiKey: {
+    id: process.env.STORMPATH_CLIENT_APIKEY_ID,
+    secret: process.env.STORMPATH_CLIENT_APIKEY_SECRET,
+  },
+  application: {
+    href: process.env.STORMPATH_APPLICATION_HREF
+  }
+}));
+
+
+app.on('stormpath.ready', function () {
+  console.log('Stormpath Ready!');
+});
+
 
 // error handlers
 
