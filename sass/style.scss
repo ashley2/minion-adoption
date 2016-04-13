@@ -5,7 +5,7 @@
 }
 
 .card {
-  margin: auto 0;
+  margin: 0 auto;
   border-radius: 15px;
   background-color: #FFD502;
   padding: 20px;
@@ -16,23 +16,30 @@
 
 }
 
-.owner-col {
-  width: 30%;
+.owner-col, .minion-col {
   display: inline-block;
+  max-height: 600px;
+  overflow-y: scroll;
+  border: 2px solid darkblue; 
+  border-radius: 5px;
+}
 
+
+.owner-col {
+  float:left;
+  margin-left: 15%;
 }
 
 .minion-col {
-  width: 30%;
-  display: inline-block;
   float:right;
+  margin-right: 15%;
 }
 
 
 .middle-col {
   vertical-align: top;
   width: 60%;
-  margin: auto 0;
+  margin: 0 auto;
   display: inline-block;
 }
 
