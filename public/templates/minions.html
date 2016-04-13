@@ -16,7 +16,7 @@
       <label for="">Eyes</label>
       <input ng-model="viewMinion.eyes"></input>
       <br>
-      <label for="">hair</label>
+      <label for="">Hair</label>
       <input ng-model="viewMinion.hair"></input>
       <br>
       <label for="">Notes:</label>
@@ -33,8 +33,10 @@
   </div><div class="card" ng-hide="viewMinion">
   <form ng-submit="addMinion(newMinion)">
 
-<!-- minions -->
+    <!-- minions -->
 
+    <div class="new">New Minion</div>
+    <br>
     <label>Name:</label>
     <input ng-model="newMinion.name" type="text" required>
     <br>

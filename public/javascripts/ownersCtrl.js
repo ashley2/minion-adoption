@@ -7,6 +7,7 @@ angular.module('minionApp')
 
 });
 
+
  $scope.owners = [];
  getAll()
  function getAll(){

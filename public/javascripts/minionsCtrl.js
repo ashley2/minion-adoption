@@ -1,6 +1,7 @@
 angular.module('minionApp')
 .controller('minionsCtrl', function($scope, MinionService, $stateParams){
 
+  
 
   $scope.minions = [];
   var totalMinions = [];
