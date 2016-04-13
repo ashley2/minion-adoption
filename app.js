@@ -39,11 +39,6 @@ app.use('/minions', require('./routes/minions'));
 
 // require('dotenv').config()
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
 
 app.use(stormpath.init(app, {
   apiKey: {
@@ -60,6 +55,11 @@ app.on('stormpath.ready', function () {
   console.log('Stormpath Ready!');
 });
 
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
 // error handlers
 
