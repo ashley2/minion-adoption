@@ -9,31 +9,29 @@
   </ul>
 </div><div class="middle-col">
 <div class="card" ng-show="viewOwner">
-
+  <img ng-src="{{viewOwner.photo}}">
   <form ng-submit="saveEdit(viewOwner)">
     <div class="row">
-      <img ng-src="{{viewOwner.photo}}">
-      <label for="">Name</label>
-      <input ng-model="viewOwner.name"></input>
-      <label for="">Age</label>
-      <input class="age" ng-model="viewOwner.age"></input>
+      <div id="nameCont">
+        <label for="">Name</label>
+        <input ng-model="viewOwner.name"></input>
+        <label for="">Age</label>
+        <input class="age" ng-model="viewOwner.age"></input>
+      </div>
     </div>
+    <textarea ng-model="viewOwner.notes" placeholder="Notes..."></textarea>
     <div class="row">
       <input type="text" ng-model="viewOwner.photo">
-      
 
-      <label for="">Notes:</label>
-      <textarea ng-model="viewOwner.notes"></textarea>
     </div>
+    <div class="row">
+      <button  title="Save Edit" class="saveEdit" type='submit'><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+    </form>
 
-
-
-    <button type='submit'>Save Edit</button>
-  </form>
-
-  <button ng-click="seeAdoptList()"data-target="modal1" class="modal-trigger">Adopt!</button>
-
-  <button id="delete" ng-click="deleteOwner(viewOwner)">Delete Owner</button>
+    <button id="minionButton" title="Adopt A Minion" ng-click="seeAdoptList()"data-target="modal1" class="modal-trigger"><i class="fa fa-plus" aria-hidden="true"></i></button>
+    <button title="Delete Owner" class="delete" ng-click="deleteOwner(viewOwner)"><i class="fa fa-times" aria-hidden="true"></i></button>
+  </div>
+  <hr>
   <div class="subTitle">Minions you adopted:</div>
   <ul>
     <li class="adopted" ng-repeat="minion in viewOwner.minions track by $index">{{minion.name}}<img ng-src="{{minion.photo}}"></li>
@@ -43,37 +41,30 @@
 
 
 <div class="card" ng-hide="viewOwner">
-  <form ng-submit="addOwner(newOwner)">
+  <form  ng-submit="addOwner(newOwner)">
     <div class="new">New Owner</div>
 
-   <!--  <span class="input input--isao">
-      <input ng-model="newOwner.name" type="text" required class="input__field input__field--isao" type="text" id="input-38" />
-      <label class="input__label input__label--isao" for="input-38" data-content="First Name">
-        <span class="input__label-content input__label-content--isao">Name</span>
-      </label>
-        </span> -->
+    <div align="center" class="input-field">
+      <input id="name" ng-model="newOwner.name" type="text" required>
+      <label for="name">Name:</label>
+    </div>
+
+    <div align="center" class="input-field">
+      <input id="photo" ng-model="newOwner.photo" type="text">
+      <label for="photo">Photo URL</label>
+    </div>
 
 
-
-
-
-    <label>Name:</label>
-    <input ng-model="newOwner.name" type="text" required>
+    <div align="center" class="input-field">
+      <input id="age" class="age" ng-model="newOwner.age" type="number" min="1" max="90">
+      <label for="age">Age:</label>
+    </div>
     <br>
-    <label for="">Photo URL</label>
-    <input ng-model="newOwner.photo" type="img">
-    <br>
-
-
-    <label>Age:</label>
-    <input class="age" ng-model="newOwner.age" type="number" min="1" max="90">
-    <br>
-
-
-    <label for="notes">Notes:</label>
-    <textarea ng-model="newOwner.notes" cols="9" rows="3"></textarea>
-
-    <button type="submit">Submit Owner</button>
+    <div align="center" class="input-field">
+      <textarea class="materialize-textarea" ng-model="newOwner.notes" ></textarea>
+      <label class="notes" for="notes=">Notes:</label>
+    </div>
+    <button id="submitOwner" type="submit">Submit Owner</button>
   </form>
 </div>
 

@@ -9,53 +9,61 @@
 
 <div class="middle-col middle-min">
   <div class="card" ng-show="viewMinion">
+    <img ng-src="{{viewMinion.photo}}">
     <form ng-submit="saveEdit(viewMinion)">
       <label for="">Name</label>
       <input ng-model="viewMinion.name"></input>
-      <br>
       <label for="">Eyes</label>
-      <input ng-model="viewMinion.eyes"></input>
-      <br>
+      <input class="eyes" ng-model="viewMinion.eyes"></input>
       <label for="">Hair</label>
       <input ng-model="viewMinion.hair"></input>
       <br>
-      <label for="">Notes:</label>
-      <textarea ng-model="viewMinion.notes"></textarea>
+
+      <textarea placeholder="Notes..." ng-model="viewMinion.notes"></textarea>
       <br>
-      <img ng-src="{{viewMinion.photo}}">
       <input type="text" ng-model="viewMinion.photo">
       <br>
 
-      <!-- <div ng-hide="viewMinion.isAdopted">This pet is up for adoption!<button ng-click="adoptMinion(viewMinion)">Adopt This Pet</button></div> -->
-      <button type='submit'>Save Edit</button>
-    </form>
-    <button id="delete" ng-click="deleteMinion(viewMinion)">Delete Minion</button>
-  </div><div class="card" ng-hide="viewMinion">
-  <form ng-submit="addMinion(newMinion)">
+      <div class="row">
+        <button class="saveEdit" title="Save Edit" type='submit'><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+      </form>
+      <button title="Delete Minion" class="delete" ng-click="deleteMinion(viewMinion)"><i class="fa fa-times" aria-hidden="true"></i></button>
+    </div>
 
-    <!-- minions -->
+  </div><div class="card" ng-hide="viewMinion">
+
+
+  <form ng-submit="addMinion(newMinion)">
 
     <div class="new">New Minion</div>
     <br>
-    <label>Name:</label>
-    <input ng-model="newMinion.name" type="text" required>
-    <br>
-    <label for="">Photo URL</label>
-    <input ng-model="newMinion.photo" type="img">
-    <br>
 
-    <label>Eyes</label>
-    <input ng-model="newMinion.eyes" type="number">
-    <br>  
-
-    <label>Hair</label>
-    <input ng-model="newMinion.hair" type="text">
-    <br>
-
-    <label for="notes">Notes:</label>
-    <textarea ng-model="newMinion.notes" cols="9" rows="3"></textarea>
+    <div align="center" class="input-field">
+      <input id="mName" ng-model="newMinion.name" type="text" required>
+      <label for"mName">Name:</label>
+    </div>
 
 
+    <div align="center" class="input-field">
+      <input id="mPhoto" ng-model="newMinion.photo" type="text">
+      <label for="mPhoto">Photo URL:</label>
+    </div>
+
+    <div align="center" class="input-field">
+      <input class="eyes"ng-model="newMinion.eyes" type="number">
+      <label for="eyes">Eyes:</label>
+    </div>
+
+
+    <div align="center" class="input-field">
+      <input id="mhair" ng-model="newMinion.hair" type="text">
+      <label for="mHair">Hair:</label>
+    </div>
+
+    <div align="center" class="input-field">
+      <textarea ng-model="newMinion.notes" cols="9" rows="3"></textarea>
+      <label for="notes">Notes:</label>
+    </div>
     <button type="submit">Submit Minion</button>
   </form>
 </div>
