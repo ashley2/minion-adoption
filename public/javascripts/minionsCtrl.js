@@ -82,18 +82,5 @@ angular.module('minionApp')
     $scope.minions = totalMinions;
   }
 
-
-
-
-// $scope.adoptMinion = function(viewMinion){
-
-//   //toggle on success
-//   $scpope.viewMinion = null;
-// }
-// }
-
-
-
-
 })
 

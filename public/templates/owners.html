@@ -11,59 +11,70 @@
 <div class="card" ng-show="viewOwner">
 
   <form ng-submit="saveEdit(viewOwner)">
-    <label for="">Name</label>
-    <input ng-model="viewOwner.name"></input>
-    <br>
-    <label for="">Age</label>
-    <input ng-model="viewOwner.age"></input>
-    <br>
-    <label for="">Notes:</label>
-    <textarea ng-model="viewOwner.notes"></textarea>
-    <br>
-    <label for="Minion"></label>
+    <div class="row">
+      <img ng-src="{{viewOwner.photo}}">
+      <label for="">Name</label>
+      <input ng-model="viewOwner.name"></input>
+      <label for="">Age</label>
+      <input class="age" ng-model="viewOwner.age"></input>
+    </div>
+    <div class="row">
+      <input type="text" ng-model="viewOwner.photo">
+      
 
-    <br>
-    <img ng-src="{{viewOwner.photo}}">
-    <input type="text" ng-model="viewOwner.photo">
+      <label for="">Notes:</label>
+      <textarea ng-model="viewOwner.notes"></textarea>
+    </div>
 
 
-    <label for="">Minions Adopted:</label>
-    <ul>
-      <li ng-repeat="minion in viewOwner.minions track by $index">{{minion.name}}<img ng-src="{{minion.photo}}"></li>
-    </ul>
 
     <button type='submit'>Save Edit</button>
   </form>
 
-  <button ng-click="seeAdoptList()"data-target="modal1" class="modal-trigger">Adopt A Minion!</button>
+  <button ng-click="seeAdoptList()"data-target="modal1" class="modal-trigger">Adopt!</button>
 
   <button id="delete" ng-click="deleteOwner(viewOwner)">Delete Owner</button>
+  <div class="subTitle">Minions you adopted:</div>
+  <ul>
+    <li class="adopted" ng-repeat="minion in viewOwner.minions track by $index">{{minion.name}}<img ng-src="{{minion.photo}}"></li>
+  </ul>
 
 </div>
 
 
 <div class="card" ng-hide="viewOwner">
-<form ng-submit="addOwner(newOwner)">
-  <div class="new">New Owner</div>
+  <form ng-submit="addOwner(newOwner)">
+    <div class="new">New Owner</div>
 
-  <label>Name:</label>
-  <input ng-model="newOwner.name" type="text" required>
-  <br>
-  <label for="">Photo URL</label>
-  <input ng-model="newOwner.photo" type="img">
-  <br>
-
-
-  <label>Age:</label>
-  <input ng-model="newOwner.age" type="number" min="1" max="90">
-  <br>
+   <!--  <span class="input input--isao">
+      <input ng-model="newOwner.name" type="text" required class="input__field input__field--isao" type="text" id="input-38" />
+      <label class="input__label input__label--isao" for="input-38" data-content="First Name">
+        <span class="input__label-content input__label-content--isao">Name</span>
+      </label>
+        </span> -->
 
 
-  <label for="notes">Notes:</label>
-  <textarea ng-model="newOwner.notes" cols="9" rows="3"></textarea>
 
-  <button type="submit">Submit Owner</button>
-</form>
+
+
+    <label>Name:</label>
+    <input ng-model="newOwner.name" type="text" required>
+    <br>
+    <label for="">Photo URL</label>
+    <input ng-model="newOwner.photo" type="img">
+    <br>
+
+
+    <label>Age:</label>
+    <input class="age" ng-model="newOwner.age" type="number" min="1" max="90">
+    <br>
+
+
+    <label for="notes">Notes:</label>
+    <textarea ng-model="newOwner.notes" cols="9" rows="3"></textarea>
+
+    <button type="submit">Submit Owner</button>
+  </form>
 </div>
 
 </div>
@@ -74,9 +85,10 @@
     <p>Please select which minion you would like to adopt!</p>
 
 
-    <div ng-repeat="minion in available track by $index" ng-click="chosenMinion(minion)" ng-class="{'selected':
-    minion === chosen}">
-    <div id="adoptable">{{minion.name}}</div><img ng-src={{minion.photo}}>
+    <div ng-repeat="minion in available track by $index" ng-click="chosenMinion(minion)" ng-class="{'animated infinite shake':
+    minion === chosen}" class="adoptable">
+
+    <div>{{minion.name}}</div><img ng-src={{minion.photo}}>
 
   </div>
 
