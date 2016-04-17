@@ -211,7 +211,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   box-shadow: none;
 }
 #minionDiv {
-display: inline-block;
+  display: inline-block;
 }
 img{
   background-color: white;
@@ -282,5 +282,13 @@ fieldset {
   display: none;
 }
 
+#mHairLabel{
+  top: -1.7rem;
+}
+
+#mHair {
+  vertical-align: top;
+  margin-top: -22px;
+}
 
 

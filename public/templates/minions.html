@@ -39,9 +39,8 @@
 
     <div align="center" class="input-field">
       <input id="mName" ng-model="newMinion.name" type="text" required>
-      <label for"mName">Name:</label>
+      <label for="mName">Name:</label>
     </div>
-
 
     <div align="center" class="input-field">
       <input id="mPhoto" ng-model="newMinion.photo" type="text">
@@ -49,18 +48,18 @@
     </div>
 
     <div align="center" class="input-field">
-      <input class="eyes"ng-model="newMinion.eyes" type="number">
+      <input id="eyes" class="eyes"ng-model="newMinion.eyes" type="number">
       <label for="eyes">Eyes:</label>
     </div>
 
 
     <div align="center" class="input-field">
-      <input id="mhair" ng-model="newMinion.hair" type="text">
-      <label for="mHair">Hair:</label>
+      <input id="mHair" ng-model="newMinion.hair" type="text">
+      <label id="mHairLabel" for="mHair">Hair:</label>
     </div>
 
     <div align="center" class="input-field">
-      <textarea ng-model="newMinion.notes" cols="9" rows="3"></textarea>
+      <textarea id="notes" class="materialize-textarea" ng-model="newMinion.notes" cols="9" rows="3"></textarea>
       <label for="notes">Notes:</label>
     </div>
     <button type="submit">Submit Minion</button>
