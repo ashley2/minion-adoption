@@ -25,16 +25,15 @@
       <br>
 
       <div class="row">
-        <button class="saveEdit" title="Save Edit" type='submit'><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        <button type="button" class="saveEdit" title="Save Edit" type='submit'><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
       </form>
-      <button title="Delete Minion" class="delete" ng-click="deleteMinion(viewMinion)"><i class="fa fa-times" aria-hidden="true"></i></button>
+       <a href=""><button title="Delete Minion" class="delete" ng-click="deleteMinion(viewMinion)"><i class="fa fa-times" aria-hidden="true"></i></button></a>
     </div>
 
   </div><div class="card" ng-hide="viewMinion">
 
 
   <form ng-submit="addMinion(newMinion)">
-
     <div class="new">New Minion</div>
     <br>
 

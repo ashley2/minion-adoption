@@ -12,6 +12,7 @@ $accent: #2F2FCF;
   max-width:700px;
   color: $accent;
   margin-bottom: 20px;
+  display: inline-block;
 }
 
 .card {
@@ -28,19 +29,19 @@ $accent: #2F2FCF;
 
 .owner-col, .minion-col {
   display: inline-block;
-  max-height: 600px;
+  max-height: 500px;
   overflow-y: scroll;
   border: 2px solid $accent; 
   border-radius: 5px;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   padding: 15px;
-  margin-top: 20px;
 
 }
 
 .owner-col {
   float:left;
   margin-left: 15%;
+  margin-top: 20px5
 }
 
 .minion-col {
@@ -143,6 +144,7 @@ button.confirm {
 #submitOwner {
   vertical-align: top;
   margin-top: 42px;
+  display: inline-block;
 }
 #minionButton {
   background-image: url('images/minion.png');
@@ -153,10 +155,11 @@ button.confirm {
 }
 
 .saveEdit, #minionButton, .delete{
- border-radius: 50px;
- width: 50px;
- height: 50px;
- font-size: 1.5rem;
+  display: inline-block;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
 }
 
 textarea {
@@ -202,6 +205,14 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   display: inline-block;
 }
 
+#minionImg{
+  max-width: 15px;
+  border-radius: 0;
+  box-shadow: none;
+}
+#minionDiv {
+display: inline-block;
+}
 img{
   background-color: white;
   display: inline-block;
@@ -270,4 +281,6 @@ html {
 fieldset {
   display: none;
 }
+
+
 
