@@ -26,7 +26,7 @@ angular.module('minionApp')
 
 
 
-$scope.addOwner = (newOwner) => {
+$scope.addOwner = function(newOwner) {
 
   OwnerService.create($scope.newOwner)
   .then(function(res){

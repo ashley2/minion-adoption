@@ -1,7 +1,7 @@
 angular.module('minionApp')
 .controller('minionsCtrl', function($scope, MinionService, $stateParams){
 
-  
+
 
   $scope.minions = [];
   var totalMinions = [];
@@ -20,7 +20,7 @@ angular.module('minionApp')
     console.error(err);
   });
 
-  $scope.addMinion = (newMinion) => {
+  $scope.addMinion = function(newMinion) {
 
     MinionService.create($scope.newMinion)
     .then(function(res){
@@ -73,14 +73,18 @@ angular.module('minionApp')
   }
 
   $scope.viewAvailable = function(){
-    $scope.minions = totalMinions.filter(e=>!e.isAdopted)
-  }
-  $scope.viewAdopted = function(){
-    $scope.minions = totalMinions.filter(e=>e.isAdopted)
-  }
-  $scope.viewAll = function(){
-    $scope.minions = totalMinions;
-  }
+    $scope.minions = totalMinions.filter(function(e) {
+     return !e.isAdopted
+  })
+}
+$scope.viewAdopted = function(){
+  $scope.minions = totalMinions.filter(function(e){
+    return e.isAdopted
+  })
+}
+$scope.viewAll = function(){
+  $scope.minions = totalMinions;
+}
 
 })
 
