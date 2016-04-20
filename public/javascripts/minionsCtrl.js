@@ -55,7 +55,7 @@ angular.module('minionApp')
       type: "warning",
       showCancelButton: true, 
       confirmButtonColor: "#DD6B55", 
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes!",
       closeOnConfirm: false },
       function(){   
         MinionService.delete(viewMinion)
