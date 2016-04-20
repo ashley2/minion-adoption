@@ -75,12 +75,12 @@ angular.module('minionApp')
   $scope.viewAvailable = function(){
     $scope.minions = totalMinions.filter(function(e) {
      return !e.isAdopted
-  }
+  })
 }
 $scope.viewAdopted = function(){
   $scope.minions = totalMinions.filter(function(e){
     return e.isAdopted
-  }
+  })
 }
 $scope.viewAll = function(){
   $scope.minions = totalMinions;
